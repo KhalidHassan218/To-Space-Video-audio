@@ -1,0 +1,224 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+}
+
+#myVideo{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 0;
+}
+
+header{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    padding: 50px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1{
+    color: white;
+    letter-spacing: 3px;
+    font-family: Lobster;
+}
+header ul{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+
+header ul li{
+    margin-left: 40px;
+}
+header ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 5px 15px;
+    font-family: Lobster;
+    border-radius: 20px;
+}
+header ul li a:hover , header ul li a.active{
+    background-color: white;
+    color: rgb(9,9,120);
+
+}
+
+.text{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 150px;
+    z-index: 2;
+    transform: translateY(-50%);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.text.vanish{
+    display: none;
+
+}
+.text h1{
+    color: white;
+    width: 400px;
+    font-size: 70px;
+    line-height: 1.2;
+}
+.text button{
+    margin-top: 30px;
+    width: 300px;
+    padding: 20px;
+    font-size: 30px;
+    background-color: rgb(78, 54, 174);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+.text button:hover{
+    background-color: rgb(62, 46, 101);
+}
+
+.text span{
+background-image: url(/space.jpg);
+background-repeat: no-repeat;
+background-size: 345px;
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color:transparent;
+color: transparent;
+
+
+
+}
+
+.trip{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+    color: white;
+    letter-spacing: 10px;
+    text-align: center;
+    width: fit-content;
+    opacity: 0;
+    transition: all 0.3s 1s;
+
+}
+.trip h1{
+    font-size: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.trip span{
+    margin-top: 40px;
+    font-size: 130px;
+    font-family: FastHand;
+    color: rgb(7,7,228);
+    display: inline-block;
+}
+@font-face{
+    font-family: FastHand;
+    src: url(./fast-hand-font/FastHand-lgBMV.ttf);
+
+}
+.space {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+    color: white;
+    letter-spacing: 10px;
+    text-align: center;
+    width: fit-content;
+    display: none;
+    transition: all 0.3s 1s;
+
+}
+.space h1{
+    overflow: hidden;
+    border-right: .15em solid rgb(37,129, 42);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.7em;
+    font-size: 50px;
+    font-family: FastHand;
+    animation: typing 3.5s steps(40,end),
+    blink-caret .75s step-end infinite; 
+}
+@keyframes typing{
+    from{
+        width: 0;
+
+    }
+    to{
+        width: 100%;
+
+    }
+}
+@keyframes blink-caret{
+    from,to{
+        border-color: transparent;
+
+    }
+    50%{
+        border-color: rgb(37, 129, 42);
+    }
+}
+.return{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 150px;
+    z-index: 2;
+    transform: translateY(-50%);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.return h1{
+    color: white;
+    width: 400px;
+    font-size: 70px;
+    line-height: 1.2;
+}
+.return button{
+    margin-top: 30px;
+    width: 300px;
+    padding: 20px;
+    font-size: 30px;
+    background-color: rgb(14, 152, 26);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.return button:hover{
+    background-color: rgb(33, 95, 19);
+
+}
+.return span{
+    background-image: url(/turf-grass-lawn-grass-for-ground-500x500.jpg);
+    background-repeat: no-repeat;
+    background-size: 345px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}

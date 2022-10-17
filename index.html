@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+   <audio id="countdown">
+<source src="./mixkit-female-microphone-countdown-341.wav" type="audio/mpeg">
+
+   </audio>
+   <video muted loop  id="myVideo" >
+<source src="./Zooming out from Earth (4K).mp4" type="video/mp4">
+
+   </video>
+   <header>
+<h1>Orbit</h1>
+<ul>
+<li> <a class="active" href="">Home</a></li>
+<li><a href="">About</a></li>
+<li><a href="">Work</a></li>
+<li><a href="">Contact</a></li>
+
+</ul>
+
+
+   </header>
+   <div class="text">
+<h1>Are You Ready To <span>Discover</span> Space ?</h1>
+<button class="launch">Start</button>
+
+   </div>
+   <div class="trip">
+<h1>Your Journey Starts In</h1>
+<span>5</span>
+
+   </div>
+<div class="space">
+    <h1>Welcome to Space</h1>
+</div>
+   <div class="return">
+<h1>Return To <span>Earth</span> </h1>
+<button class="launch">Return</button>
+
+
+   </div>
+
+<script>
+let vid = document.getElementById('myVideo');
+let aud = document.getElementById('countdown');
+let launch = document.querySelector('.launch')
+let text = document.querySelector('.text')
+let trip = document.querySelector('.trip')
+let countdown = document.querySelector('.trip span')
+var counter = 5;
+
+play();
+function play (){
+    vid.play();
+    vid.playbackRate =2.0 //to speed up the video 
+
+}
+let start = setInterval(function(){
+    if(vid.currentTime > 0 && !(counter < 5)){
+        vid.pause();   //pause the video once it start and when counter not less than five 
+    }
+    else if(counter < 0){
+        play();   // when countdown reaches below zero play the video
+     }
+},1000)   // check after  1000 mili seconds = 1second
+
+launch.addEventListener('click',(launch) => {
+
+text.classList.add('vanish'); // when launch button has been clicked , remove the text and button to play the video
+trip.style.opacity='1'; // let the countdown text appear
+
+setTimeout(() =>{
+aud.currentTime=5;
+aud.play();
+
+},1000)
+let starttrip = setInterval(function(){
+    countdown.innerHTML = counter--;
+    if(counter < 0){
+    aud.pause();
+    trip.style.opacity = '0'
+    vid.muted = false;
+    clearInterval(starttrip)
+}
+},1000)
+let space =setInterval(function(){
+    if(vid.currentTime > 60 && vid.currentTime < 75){
+        document.querySelector('.space').style.display ='block'
+    } 
+    else if(vid.currentTime > 75){
+        document.querySelector('.space').style.display='none'
+        document.querySelector('.return').style.display='block'
+    }
+},1000)
+
+
+})
+document.querySelector('.return').addEventListener('click',function(){
+    vid.muted = true 
+    vid.currentTime =0 
+    counter = 5
+    document.querySelector('.return').style.display="none"
+    text.classList.remove('vanish')
+})
+
+
+</script>
+
+
+</body>
+</html>
